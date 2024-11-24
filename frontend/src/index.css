@@ -1,0 +1,106 @@
+.loader-parent{
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.638);
+  z-index:  10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader{
+  height: 80px;
+  width: 80px;
+  border: 5px solid #fff;
+  border-left-color: transparent;
+  border-radius: 50%;
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader{
+  0% {
+     transform: rotate(0deg);
+  }
+  100% {
+     transform: rotate(360deg); 
+  }
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+.container {
+  background: transparent; /* Keep container background transparent */
+}
+
+/* .dark-mode {
+  background-color: #444;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #f8f9fa;
+  color: #000;
+} */
+
+/* Style for Form.Control */
+.dark-mode .form-control, .dark-mode .form-select {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.dark-mode .form-control:focus, .dark-mode .form-select:focus {
+  background-color: #555; /* Maintain dark background on focus */
+  color: #fff; /* Maintain white text on focus */
+  border-color: #777; /* Change border color on focus for visibility */
+}
+
+.light-mode .form-control, .light-mode .form-select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ced4da;
+}
+
+.light-mode .form-control:focus, .light-mode .form-select:focus {
+  background-color: #fff; /* Maintain light background on focus */
+  color: #000; /* Maintain black text on focus */
+  border-color: #80bdff; /* Change border color on focus for visibility */
+}
+
+/* Modal Styles */
+.dark-mode .modal-content {
+  background-color: #444; /* Dark background for modal */
+  color: #fff; /* White text for modal */
+}
+
+.light-mode .modal-content {
+  background-color: #fff; /* Light background for modal */
+  color: #000; /* Black text for modal */
+}
+
+.dark-mode .modal-header, 
+.dark-mode .modal-body, 
+.dark-mode .modal-footer {
+  background-color: #444; /* Consistent dark background */
+  color: #fff; /* Consistent white text */
+}
+
+.light-mode .modal-header, 
+.light-mode .modal-body, 
+.light-mode .modal-footer {
+  background-color: #fff; /* Consistent light background */
+  color: #000; /* Consistent black text */
+}
+
+/* You might want to customize the button colors for dark mode */
+button {
+  transition: background-color 0.3s, color 0.3s;
+}
