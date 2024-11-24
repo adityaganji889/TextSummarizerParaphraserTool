@@ -37,7 +37,11 @@ function SettingModal(props) {
                 type="number"
                 min="10"
                 max={`${text.split("").length}`}
-                onChange={(e) => setMaxWords(e.target.value)}
+                onChange={(e) => {
+                  setShowAlert(false);
+                  setAlertText("");
+                  setMaxWords(e.target.value);
+                }}
                 value={maxWords}
               />
             </>
@@ -46,7 +50,11 @@ function SettingModal(props) {
             <>
               <Form.Select
                 aria-label="Default select example"
-                onChange={(e) => setLevel(e.target.value)}
+                onChange={(e) => {
+                  setShowAlert(false);
+                  setAlertText("");
+                  setLevel(e.target.value);
+                }}
               >
                 <option>Select Paraphrase Level:</option>
                 <option value="low">Low</option>
