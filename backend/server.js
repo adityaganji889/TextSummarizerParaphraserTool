@@ -10,16 +10,8 @@ const apiRoutes = require("./routes/apiRoutes");
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/textai", apiRoutes); // Use /api prefix for routes
 
-// Load models at the start
-// loadModels()
-  // .then(() => {
-    app.use("/api/textai", apiRoutes); // Use /api prefix for routes
-  // })
-  // .catch((err) => {
-    // console.error("Failed to load models:", err);
-    // process.exit(1); // Exit if models fail to load
-  // });
 
 const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, "/frontend/build")));
