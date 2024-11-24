@@ -42,7 +42,7 @@ const paraphraseText = async (req, res) => {
   }
 
   try {
-    const paraphraser = getParaphraser();
+    const paraphraser = await getParaphraser();
     const paraphrase = await paraphraser(complexity + text, { add_special_tokens: true, max_new_tokens: 128, repetition_penalty: 1.2});
     // console.log(paraphrase);
     // res.json({ paraphrased: paraphrase });
@@ -77,7 +77,7 @@ const summarizeText = async (req, res) => {
   prompt = `Summarize the following text with resulting text containing no more than ${maxWords} words: ${text}`;
 
   try {
-    const summarizer = getSummarizer();
+    const summarizer = await getSummarizer();
     const summary = await summarizer(prompt,{ add_special_tokens: true, max_new_tokens: 128, repetition_penalty: 1.2});
       // Remove specific unwanted sentences using regex
       if(summary[0].summary_text.indexOf(":")!==-1){

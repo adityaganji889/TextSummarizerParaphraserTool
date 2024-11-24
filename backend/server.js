@@ -1,5 +1,5 @@
 const express = require("express");
-const { loadModels } = require("./config/modelConfig");
+// const { loadModels } = require("./config/modelConfig");
 const path = require("path");
 const app = express();
 const cors = require("cors");
@@ -12,14 +12,14 @@ app.use(cors());
 app.use(express.json());
 
 // Load models at the start
-loadModels()
-  .then(() => {
+// loadModels()
+  // .then(() => {
     app.use("/api/textai", apiRoutes); // Use /api prefix for routes
-  })
-  .catch((err) => {
-    console.error("Failed to load models:", err);
-    process.exit(1); // Exit if models fail to load
-  });
+  // })
+  // .catch((err) => {
+    // console.error("Failed to load models:", err);
+    // process.exit(1); // Exit if models fail to load
+  // });
 
 const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, "/frontend/build")));
