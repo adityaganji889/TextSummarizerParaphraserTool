@@ -6,7 +6,7 @@ const cors = require("cors");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const apiRoutes = require("./routes/apiRoutes");
 
@@ -46,13 +46,13 @@ const swaggerOptions = {
         // }
       ],
   },
-  apis: ["./routes/*.js"],
+  apis: [path.join(__dirname, "/routes/*.js")],
 };
 
 app.use("/api/textai", apiRoutes); // Use /api prefix for routes
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/swagger/apiDocs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, "/frontend/build")));

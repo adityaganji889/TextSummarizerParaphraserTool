@@ -69,6 +69,10 @@ const { paraphraseText, summarizeText } = require('../controllers/apiControllers
  *     responses:
  *       200:
  *         description: Returns Paraphrased Text
+ *       400:
+ *         description: Text and level required in request
+ *       500:
+ *         description: Internal Server Error
  */
 router.post('/paraphrase',paraphraseText);
 
@@ -77,7 +81,7 @@ router.post('/paraphrase',paraphraseText);
  * tags:
  *   name: Summarizer
  *   description: REST API For Summarizing Text
- * /api/textai/summarizer:
+ * /api/textai/summarize:
  *   post:
  *     tags: [Summarizer]
  *     requestBody:
@@ -90,6 +94,10 @@ router.post('/paraphrase',paraphraseText);
  *     responses:
  *       200:
  *         description: Returns Summarized Text
+ *       400:
+ *         description: Text and maxWords required in request
+ *       500:
+ *         description: Internal Server Error
  */
 router.post('/summarize',summarizeText);
 
