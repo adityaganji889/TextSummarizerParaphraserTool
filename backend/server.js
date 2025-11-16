@@ -37,8 +37,12 @@ const swaggerOptions = {
     //   ],
       servers: [
         {
-          url: "http://localhost:5000/",
-          description: "Localhost development server"
+          url: "http://localhost:5000",
+          description: "Development Server"
+        },
+        {
+          url: "https://textsummarizerandparaphrasertool.onrender.com",
+          description: "Hosted Server"
         }
         // {
         //   url: "https://blogging-platform-og12.onrender.com",
