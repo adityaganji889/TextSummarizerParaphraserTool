@@ -78,7 +78,7 @@ const summarizeText = async (req, res) => {
 
   try {
     const summarizer = await getSummarizer();
-    const summary = await summarizer(prompt,{ add_special_tokens: true, max_new_tokens: 128, repetition_penalty: 1.2});
+    const summary = await summarizer(prompt,{ add_special_tokens: true, max_new_tokens: maxWords, repetition_penalty: 1.2});
       // Remove specific unwanted sentences using regex
       if(summary[0].summary_text.indexOf(":")!==-1){
         summary[0].summary_text = summary[0].summary_text.split(":")[1];

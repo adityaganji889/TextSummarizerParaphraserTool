@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const cors = require("cors");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
@@ -10,8 +12,47 @@ const apiRoutes = require("./routes/apiRoutes");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Text Summarizer and Paraphrasing Tool API",
+      description:
+        "A REST API built with Node Js, Express, Hugging Face External ML Transformer Models. This API provides Text Paraphrasing and Summarizing tools.",
+    },
+    // components: {
+    //     securitySchemes: {
+    //       bearerAuth: {
+    //         type: "http",
+    //         scheme: "bearer",
+    //       },
+    //     },
+    //   },
+    //   security: [
+    //     {
+    //       bearerAuth: [],
+    //     },
+    //   ],
+      servers: [
+        {
+          url: "http://localhost:5000/",
+          description: "Localhost development server"
+        }
+        // {
+        //   url: "https://blogging-platform-og12.onrender.com",
+        //   description: "Remote deployment on render.com"
+        // }
+      ],
+  },
+  apis: ["./routes/*.js"],
+};
+
 app.use("/api/textai", apiRoutes); // Use /api prefix for routes
 
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, "/frontend/build")));
