@@ -42,7 +42,7 @@ const swaggerOptions = {
         },
         {
           // url: "https://textsummarizerandparaphrasertool.onrender.com",
-          url: "https://text-summarizer-paraphraser-tool-f8jjwpiw8.vercel.app",
+          url: "https://text-summarizer-paraphraser-tool.vercel.app",
           description: "Hosted Server"
         }
         // {
