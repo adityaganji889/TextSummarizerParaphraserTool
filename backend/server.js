@@ -57,7 +57,7 @@ const swaggerOptions = {
 app.use("/api/textai", apiRoutes); // Use /api prefix for routes
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/swagger/apiDocs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api/swagger/apiDocs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, "/frontend/build")));
