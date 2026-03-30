@@ -41,8 +41,8 @@ const swaggerOptions = {
           description: "Development Server"
         },
         {
-          // url: "https://textsummarizerandparaphrasertool.onrender.com",
-          url: "https://text-summarizer-paraphraser-tool.vercel.app",
+          url: "https://textsummarizerandparaphrasertool.onrender.com",
+          // url: "https://text-summarizer-paraphraser-tool.vercel.app",
           description: "Hosted Server"
         }
         // {
